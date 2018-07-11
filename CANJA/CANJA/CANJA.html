@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html ng-app="FablePlayer">
+<head>
+	<title>Fable-Player</title>
+	<script type="text/javascript" src="lib/angular.js"></script>
+	<script type="text/javascript" src="lib/angular-simple-sprite.js"></script>
+	<script type="text/javascript" src="../FableJS/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+	<body>
+			<fable width="1000px" height="600px">
+ 				<page id="1" bg-image="graphics/cenario/fundo01.png" transition="animated fadeIn">
+  				 	<agent id="introducao">
+  				 		<state id="introducao">
+
+  				 			<img  src="graphics//robos/robocop.png" width="325" height="275" left="675" top="325"></img>
+  				 			<img  src="graphics/robos/walle.png" width="325" height="275" left="50" top="375"></img>
+  				 	
+  				 			<div left="300" top="75" width="400" font-size="30" font-color="black">
+    							<board><p transition="animated fadeIn">Em um mundo distópico, onde máquinas que antes defendiam os seres vivos, agora elas os atacam, por conta de um problema misterioso. E somente Canja, o cão ninja, pode fazer as coisas voltarem ao normal.</p></board>
+							</div>
+							<on-touch>	
+								<emit event="next_page"></emit>
+							</on-touch>
+						</state>		
+					</agent>
+				</page>
+				
+				<!--NO QUARTO-->
+				
+				<page id="2" bg-image="graphics/cenario/fundo02.png" transition="animated fadeIn">
+					<agent id="quarto">
+						<state id="atender">
+							<img  id="tele" src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<on-touch>
+								<change-state target="atendendo"/>
+							</on-touch>
+						</state>
+
+						<state id="atendendo">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita.png" width="280" height="350" left="300" top="150">
+
+							<div left="668" top="250" width="400" font-size="30" font-color="green">
+    							<board><p transition="animated fadeIn">Alô, Canja é você?</p></board>
+							</div>
+							<on-touch>
+								<change-state target="fala_tele_01">
+							</on-touch>
+						</state>
+
+						<state id="fala_tele_01">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="300" top="150">
+
+							<div left="350" top="150" width="400" font-size="30" font-color="yellow">
+    							<board><p transition="animated fadeIn">Opa, sim sou eu mesmo, fala tu?</p></board>
+							</div>
+							<on-touch>
+								<change-state target="fala_tele_02">
+							</on-touch>
+						</state>
+
+						<state id="fala_tele_02">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita.png" width="280" height="350" left="300" top="150">
+
+							<div left="668" top="250" width="300" font-size="30" font-color="green">
+    							<board><p transition="animated fadeIn">Aqui é o Coronel Alface, a quanto tempo Capitão Canja. </p></board>
+							</div>
+							<on-touch>
+								<change-state target="fala_tele_03">
+							</on-touch>
+						</state>
+
+						<state id="fala_tele_03">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="300" top="150">
+
+							<div left="350" top="100" width="400" font-size="30" font-color="yellow">
+    							<board><p transition="animated fadeIn">Sim, e já que você não costuma me ligar, eu já até imagino o que tu quer.</p></board>
+							</div>
+							<on-touch>
+								<change-state target="fala_tele_04">
+							</on-touch>
+						</state>
+
+						<state id="fala_tele_04">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita.png" width="280" height="350" left="300" top="150">
+
+							<div left="668" top="250" width="300" font-size="30" font-color="green">
+    							<board><p transition="animated fadeIn">Bem. Mas agora o assunto é muito sério e só você pode impedir isso. </p></board>
+							</div>
+							<on-touch>
+								<change-state target="fala_tele_05">
+							</on-touch>
+						</state>
+
+						<state id="fala_tele_05">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita.png" width="280" height="350" left="300" top="150">
+
+							<div left="668" top="250" width="300" font-size="30" font-color="green">
+    							<board><p transition="animated fadeIn">Então não desliga que nem você fez da última vez, por favor. </p></board>
+							</div>
+							<on-touch>
+								<change-state target="fala_tele_06">
+							</on-touch>
+						</state>
+
+						<state id="fala_tele_06">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="300" top="150">
+
+							<div left="350" top="100" width="400" font-size="30" font-color="yellow">
+    							<board><p transition="animated fadeIn">Então fala logo, pois eu to quase desligando.</p></board>
+							</div>
+							<on-touch>
+								<change-state target="fala_tele_07">
+							</on-touch>
+						</state>
+
+						<state id="fala_tele_07">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita.png" width="280" height="350" left="300" top="150">
+
+							<div left="668" top="250" width="300" font-size="30" font-color="green">
+    							<board><p transition="animated fadeIn">Todos os robôs da BORING CORP. ficaram fora de controle e ninguém sabe o motivo. </p></board>
+							</div>
+							<on-touch>
+								<change-state target="fala_tele_08">
+							</on-touch>
+						</state>
+
+						<state id="fala_tele_08">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="300" top="150">
+
+							<div left="450" top="100" width="400" font-size="30" font-color="yellow">
+    							<board><p transition="animated fadeIn">E?!</p></board>
+							</div>
+							<on-touch>
+								<change-state target="fala_tele_09">
+							</on-touch>
+						</state>
+
+						<state id="fala_tele_09">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita.png" width="280" height="350" left="300" top="150">
+
+							<div left="668" top="250" width="300" font-size="30" font-color="green">
+    							<board><p transition="animated fadeIn">Bom, nós precisamos do melhor agente de todos os tempos para resolver isso. Ou seja, você. </p></board>
+							</div>
+							<on-touch>
+								<change-state target="fala_tele_010">
+							</on-touch>
+						</state>
+
+						<state id="fala_tele_010">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="300" top="150">
+
+							<div left="350" top="100" width="400" font-size="30" font-color="yellow">
+    							<board><p transition="animated fadeIn">Eu estou aposentado.</p></board>
+							</div>
+							<on-touch>
+								<change-state target="fala_tele_011">
+							</on-touch>
+						</state>
+
+						<state id="fala_tele_011">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita.png" width="280" height="350" left="300" top="150">
+
+							<div left="668" top="250" width="300" font-size="30" font-color="green">
+    							<board><p transition="animated fadeIn">O MUNDO ESTA EM PERIGO PRECISAMOS DE VOCÊ. </p></board>
+							</div>
+							<on-touch>
+								<change-state target="fala_tele_012">
+							</on-touch>
+						</state>
+
+						<state id="fala_tele_012">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="300" top="150">
+
+							<div left="350" top="100" width="400" font-size="30" font-color="yellow">
+    							<board><p transition="animated fadeIn">Meu Deus, dramático. Okay, eu ajudo. agrh .</p></board>
+							</div>
+							<on-touch>
+								<change-state target="fala_tele_013">
+							</on-touch>
+						</state>
+
+						<state id="fala_tele_013">
+							<img  src="graphics/telefone.png" width="175" height="200" left="525" top="270">
+							<img  src="graphics/canja_direita.png" width="280" height="350" left="300" top="150">
+
+							<div left="668" top="250" width="300" font-size="30" font-color="green">
+    							<board><p transition="animated fadeIn">Obrigado. Estou mandando para seu K-Phone todas as informações da sua missão, para acabar com essa loucura. Boa sorte! </p></board>
+							</div>
+								<on-touch>	
+									<emit event="next_page"></emit>
+								</on-touch>
+						</state>
+					</agent>
+				</page>
+
+				<!--PRIMEIRA VEZ NO TREM-->
+
+				<page id="3" bg-image="graphics/cenario/fundo03.png" transition="animated fadeIn">
+  				 	<agent id="trem01">
+  				 		<state id="trem01">
+							
+  				 			<div left="580" top="250" width="400" font-size="30" font-color="black">
+    							<board><p transition="animated fadeIn">Então Canja pegou o trem e foi em direção a mansão do CEO da BORING CORP. , se algo em seu sistema falhou provavelmente ele saberia o por quê.</p></board>
+							</div>
+							<on-touch>	
+								<emit event="next_page"></emit>
+							</on-touch>
+						</agent>
+					</state>
+				</page>
+
+				<!--NA MANSÃO DO LADO DE FORA-->
+
+				<page id="4" bg-image="graphics/cenario/fundo04.png" transition="animated fadeIn">
+					<agent id="mansao_fora">
+					
+						<state id="fora_mansao_conversa_01">
+							<img  src="graphics/canja_esquerda.png" width="280" height="350" left="700" top="250">
+							<img  src="graphics/walktalk.png" width="75" left="875" top="20">
+									
+							<img  src="graphics/robos/ultron.png" width="70" left="100" top="50">
+							<img  src="graphics/robos/brainiac.png" width="65" left="500" top="160">
+
+							<div left="450" top="50" width="400" font-size="30" font-color="green">
+		    					<board><p transition="animated fadeIn"> Esta é a mansão do CEO da BORING CORP. De acordo com nossos informantes 100% informados o culpado esta ai dentro. </p></board>
+							</div>
+							<on-touch>
+								<change-state target="fora_mansao_conversa_02">
+								</on-touch>
+							</state>
+
+							<state id="fora_mansao_conversa_02">
+								<img  src="graphics/canja_esquerda_falando.png" width="280" height="350" left="700" top="250">
+								<img  src="graphics/walktalk.png" width="75" left="875" top="20">
+									
+								<img  src="graphics/robos/ultron.png" width="70" left="100" top="50">
+								<img  src="graphics/robos/brainiac.png" width="65" left="500" top="160">
+
+								<div left="550" top="350" width="400" font-size="30" font-color="green">
+		    						<board><p transition="animated fadeIn"> Já vi melhores.</p></board>
+								</div>
+									<on-touch>
+									 	<change-state target="fora_mansao_conversa_03">
+									</on-touch>
+							</state>
+
+							<state id="fora_mansao_conversa_03">
+								<img  src="graphics/canja_esquerda.png" width="280" height="350" left="700" top="250">
+								<img  src="graphics/walktalk.png" width="75" left="875" top="20">
+									
+								<img  src="graphics/robos/ultron.png" width="70" left="100" top="50">
+								<img  src="graphics/robos/brainiac.png" width="65" left="500" top="160">
+
+								<div left="450" top="50" width="400" font-size="30" font-color="green">
+		    						<board><p transition="animated fadeIn"> Tome cuidado ao invadir capitão. Essa mansão esta sendo protegida por robôs ultran poderosos. </p></board>
+								</div>
+									<on-touch>
+										<change-state target="fora_mansao_conversa_04">
+									</on-touch>
+							</state>
+
+							<state id="fora_mansao_conversa_04">
+								<img  src="graphics/canja_esquerda_falando.png" width="280" height="350" left="700" top="250">
+								<img  src="graphics/walktalk.png" width="75" left="875" top="20">
+									
+								<img  src="graphics/robos/ultron.png" width="70" left="100" top="50">
+								<img  src="graphics/robos/brainiac.png" width="65" left="500" top="160">
+
+								<div left="325" top="350" width="400" font-size="20" font-color="green">
+		    						<board><p transition="animated fadeIn"> Calma, calma. Você se preocupa demais. Isso é fácil.</p></board>
+								</div>
+									<on-touch>	
+										<emit event="next_page"></emit>
+									</on-touch>
+							</state>
+						</agent>
+					</page>
+
+					<!--NA MANSÃO DO LADO DE DENTRO-->
+
+					<page id="5" bg-image="graphics/cenario/fundo05.png" transition="animated fadeIn">
+
+						<agent id="mansão dentro">
+							<state id="dentro_mansao_conversa_01">
+								<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="50" top="250">
+									<div left="300" top="350" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Pronto, consegui. Muito fácil. </p></board>
+									</div>
+								<on-touch>
+										<change-state target="dentro_mansao_conversa_02">
+									</on-touch>
+							</state>
+							<state id="dentro_mansao_conversa_02">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/eggman.png" width="280" height="350" left="600" top="200">
+									
+								<div left="275" top="75" width="400" font-size="30" font-color="green">
+		    						<board><p transition="animated fadeIn"> Mas o que é isso quem foi que conseguiu invadir a minha mansão de alta segunrança?! </p></board>
+								</div>
+								<on-touch>
+										<change-state target="dentro_mansao_conversa_03">
+									</on-touch>
+							</state>
+
+							<state id="dentro_mansao_conversa_03">
+								<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/eggman.png" width="280" height="350" left="600" top="200">
+									
+								<div left="300" top="350" width="400" font-size="30" font-color="green">
+		    						<board><p transition="animated fadeIn"> Uée. Foi eu. You cego man?! You front. One dog. </p></board>
+								</div>
+								<on-touch>
+										<change-state target="dentro_mansao_conversa_04">
+									</on-touch>
+							</state>
+
+							<state id="dentro_mansao_conversa_04">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/eggman.png" width="280" height="350" left="600" top="200">
+									
+								<div left="275" top="75" width="400" font-size="30" font-color="green">
+		    						<board><p transition="animated fadeIn"> Se você veio por causa dessa "Revolução das Máquinas". Não foi eu. Foi uma IA que eu criei que acabou invadindo o sistema e fazendo isso tudo. </p></board>
+								</div>
+								<on-touch>
+										<change-state target="dentro_mansao_conversa_05">
+									</on-touch>
+							</state>
+
+							<state id="dentro_mansao_conversa_05">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/eggman.png" width="280" height="350" left="600" top="200">
+									
+								<div left="275" top="75" width="400" font-size="30" font-color="green">
+		    						<board><p transition="animated fadeIn"> Se você quer saber como resolver esse problema, vá para Madagascar, onde fica uma das minhas mais de 50 mil indústrias pelo mundo. </p></board>
+								</div>
+								<on-touch>
+										<change-state target="dentro_mansao_conversa_06">
+									</on-touch>
+							</state>
+
+							<state id="dentro_mansao_conversa_06">
+								<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/eggman.png" width="280" height="350" left="600" top="200">
+									
+								<div left="300" top="350" width="400" font-size="30" font-color="green">
+		    						<board><p transition="animated fadeIn"> Ahhh, meus deus. </p></board>
+								</div>
+								<on-touch>
+										<emit event="next_page"></emit>
+								</on-touch>
+							</state>
+						</agent>
+					</page>
+
+					<!--NA ESTAÇÃO-->
+
+					<page id="6" bg-image="graphics/cenario/fundo06.png" transition="animated fadeIn">
+						<agent id="subway">
+							<state id="subway_01">
+								<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="50" top="250">
+									<div left="300" top="350" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Tenho que correr, se não irei perde o trem para Madagascar. </p></board>
+									</div>
+								<on-touch>
+										<change-state target="subway_02">											
+									</on-touch>
+							</state>
+
+							<state id="subway_02">
+								<img  src="graphics/v.png" width="350" left="375" top="100">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="500" top="250">
+								
+									<div left="300" top="100" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Calma ai doginho. </p></board>
+									</div>
+								<on-touch>
+										<change-state target="subway_03">											
+									</on-touch>
+							</state>
+
+
+							<state id="subway_03">
+								<img  src="graphics/v.png" width="350" left="375" top="100">
+								<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="500" top="250">
+								
+									<div left="600" top="200" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> OHU!! Qual foi não sou desses não, vaza. </p></board>
+									</div>
+								<on-touch>
+										<change-state target="subway_04">											
+									</on-touch>
+							</state>
+						
+							<state id="subway_04">
+								<img  src="graphics/v.png" width="350" left="375" top="100">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="500" top="250">
+								
+									<div left="50" top="100" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Eu sou um agente que trabalha pro Coronel Alface. Eu vim aqui informa pra você ir para Madagascar, pois a informação sobre a mansão estava errado. </p></board>
+									</div>
+								<on-touch>
+										<change-state target="subway_05">											
+									</on-touch>
+							</state>
+						
+							<state id="subway_05">
+								<img  src="graphics/v.png" width="350" left="375" top="100">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="500" top="250">
+								
+									<div left="600" top="200" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> ....... </p></board>
+									</div>
+								<on-touch>
+										<change-state target="subway_06">											
+									</on-touch>
+							</state>
+
+							<state id="subway_06">
+								<img  src="graphics/v.png" width="350" left="375" top="100">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="500" top="250">
+								
+									<div left="200" top="100" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Bom é só isso, adeus. </p></board>
+									</div>
+								<on-touch>
+										<change-state target="subway_07">											
+									</on-touch>
+							</state>
+							<state id="subway_07">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="500" top="250">
+								
+									<div left="600" top="200" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> ....... </p></board>
+									</div>
+								<on-touch>
+										<emit event="next_page"></emit>											
+									</on-touch>
+							</state>
+						</agent>
+					</page>
+
+					<!--SEGUNDA VEZ NO TREM-->
+
+				<page id="7" bg-image="graphics/cenario/fundo07.png" transition="animated fadeIn">
+  				 	<agent id="trem01">
+  				 		<state id="trem01">
+							
+  				 			<div left="50" top="50" width="400" font-size="30" font-color="black">
+    							<board><p transition="animated fadeIn">Agora indo para a indústria em Madagascar. Canja apenas quer que isso acabe logo.</p></board>
+							</div>
+							<on-touch>	
+								<emit event="next_page"></emit>
+							</on-touch>
+						</agent>
+					</state>
+				</page>
+
+				<!--EM MADAGASCAR-->
+
+				<page id="8" bg-image="graphics/cenario/fundo08.png" transition="animated fadeIn">
+						<agent id="madaga">
+							<state id="madaga">
+								<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="50" top="250">
+									
+									<div left="300" top="350" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Finalmente cheguei aqui. </p></board>
+									</div>
+								<on-touch>
+										<change-state target="madaga01">											
+									</on-touch>
+							</state>
+
+							<state id="madaga01">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/robos/megamen.png" width="280" height="350" left="700" top="250">
+									
+									<div left="650" top="350" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Opa, iai. </p></board>
+									</div>
+								<on-touch>
+										<change-state target="madaga02">											
+									</on-touch>
+							</state>
+							
+							<state id="madaga02">
+								<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/robos/megamen.png" width="280" height="350" left="700" top="250">
+
+									<div left="300" top="350" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Você é um robô , por que esta me comprimentando? </p></board>
+									</div>
+								<on-touch>
+										<change-state target="madaga03">											
+									</on-touch>
+							</state>
+
+							<state id="madaga03">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/robos/megamen.png" width="280" height="350" left="700" top="250">
+									
+									<div left="500" top="150" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Eu não gosto da ideologia desse movimento, então por isso vou ti ajudar a acabar com ela. </p></board>
+									</div>
+								<on-touch>
+										<change-state target="madaga04">											
+									</on-touch>
+							</state>
+
+							<state id="madaga04">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/robos/megamen.png" width="280" height="350" left="700" top="250">
+									
+									<div left="500" top="150" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> A indústria é super bem protegida, mas se você for pelo esgoto ninguém o olhara você. </p></board>
+									</div>
+								<on-touch>
+										<change-state target="madaga05">											
+									</on-touch>
+							</state>
+
+							<state id="madaga05">
+								<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/robos/megamen.png" width="280" height="350" left="700" top="250">
+
+									<div left="300" top="350" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Okay então, valeu. </p></board>
+									</div>
+								<on-touch>
+										<emit event="next_page"></emit>
+							</on-touch>
+						</agent>
+					</state>
+				</page>
+
+				<!--DENTRO DA INDÚSTRIA-->
+
+				<page id="9" bg-image="graphics/cenario/fundo09.png" transition="animated fadeIn">
+						<agent id="industria">
+
+							<state id="industria01">
+								<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="50" top="250">
+									
+									<div left="300" top="350" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Finalmente cheguei aqui. O esgoto tinha um cheiro horrível, mas a pizza que os outros ninjas me deram estava ótima. </p></board>
+									</div>
+								<on-touch>
+										<change-state target="industria02">											
+									</on-touch>
+							</state>
+
+							<state id="industria02">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/robos/marvin.png" width="280" height="350" left="700" top="250">
+
+									<div left="500" top="120" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Maldito como chegou aqui? O que você que? </p></board>
+									</div>
+								<on-touch>
+										<change-state target="industria03">											
+									</on-touch>
+							</state>
+
+							<state id="industria03">
+								<img  src="graphics/canja_direita_falando.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/robos/marvin.png" width="280" height="350" left="700" top="250">
+
+									<div left="300" top="350" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Eu vim aqui impedir seus planos, bobão. </p></board>
+									</div>
+								<on-touch>
+										<change-state target="industria04">											
+									</on-touch>
+							</state>
+
+							<state id="industria04">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/robos/marvin.png" width="280" height="350" left="700" top="250">
+
+									<div left="500" top="120" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Kkkkkkkkk , você jamais vai conseguir me impedir, não seja tolo rsrs. </p></board>
+									</div>
+								<on-touch>
+										<change-state target="industria05">											
+								</on-touch>
+							</state>
+
+							<state id="industria05">
+								<img  src="graphics/canja_mijando.png" width="480" left="25" top="250">
+								<img  src="graphics/robos/marvin.png" width="280" height="350" left="700" top="250">
+
+									<div left="500" top="120" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Aham?! O que você? </p></board>
+									</div>
+								<on-touch>
+										<change-state target="industria06">											
+								</on-touch>
+							</state>
+
+							<state id="industria06">
+								<img  src="graphics/fogo.png" width="400" left="600" top="300">
+								<img  src="graphics/raio.png" width="400" left="400" top="250">
+								<img  src="graphics/raio.png" width="400" left="750" top="50">
+
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="50" top="250">
+								<img  src="graphics/robos/marvin.png" width="280" height="350" left="700" top="250">
+
+									<div left="500" top="120" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> MAS... O QUE ... COMO VOCÊ ... NÃAAOOOOOO!!! </p></board>
+									</div>
+								<on-touch>
+										<emit event="next_page"></emit>										
+								</on-touch>
+							</state>
+						</agent>
+					</page>
+
+					<!--EXPLOSÃO-->
+
+				<page id="10" bg-image="graphics/cenario/fundo11.png" transition="animated fadeIn">
+  				 	<agent id="trem01">
+  				 		<state id="trem01">
+							<img  src="graphics/kabum.png" width="280" left="50" top="50">
+  				 			
+							<on-touch>	
+								<emit event="next_page"></emit>
+							</on-touch>
+						</agent>
+					</state>
+				</page>
+
+					<!--HONRA-->
+
+					<page id="11" bg-image="graphics/cenario/fundo10.png" transition="animated fadeIn">
+						<agent id="honra">
+							<state id="honra">
+								
+								<img  src="graphics/coronel.png" width="280" height="350" left="700" top="220">
+								<img  src="graphics/canja_direita.png" width="280" height="350" left="200" top="250">
+								<img  src="graphics/medalha.png" width="75" left="445" top="475">
+								<div left="500" top="120" width="400" font-size="30" font-color="green">
+		    							<board><p transition="animated fadeIn"> Parabéns você conseguiu, Capitão Canja. </p></board>
+								</div>
+					</state>
+				</agent>
+			</page>
+
+			</fable>
+				
+
+						
